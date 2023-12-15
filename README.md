@@ -6,7 +6,7 @@ When executed and properly set up, the script will look for the most recent user
 this has the effect that all toons will have the same appearance and settings.
 
 Installation
-- download ([syncprofiles.bat](https://github.com/nullx8/EveOnline_profileSync/blob/main/syncprofiles.bat](https://github.com/nullx8/EveOnline_profileSync/blob/main/syncprofiles.bat)) (right click & chose save/download)
+- download ([syncprofiles.bat](https://github.com/nullx8/EveOnline_profileSync/blob/main/syncprofiles.bat)) (right click & chose save/download)
 - file can be put anywhere you like
 - edit to add the path to your Eve_installation
    look for root= (my own game direcory is set as example)
