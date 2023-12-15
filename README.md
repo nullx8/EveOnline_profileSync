@@ -1,4 +1,4 @@
-# EveOnline_profileSync
+# EveOnline profile Sync
 small script (batch) that replaces dormant local profiles with the most recent one
 
 How it works:
