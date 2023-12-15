@@ -1,12 +1,16 @@
 @echo off
+REM EVE Online Profile Sync
+REM v 0.91
+
 setlocal enableextensions disabledelayedexpansion
+REM SET THIS TO YOUR EVE-DIRECTORY!! WILL BE REPLACED BY A CONFIG FILE LATER
 set "root=C:\Users\swingfish\AppData\Local\CCP\EVE\c_eve_sharedcache_tq_tranquility\settings_Default\"
 
-set "backupDir=%root%_backup"
-rem mkdir "%backupDir%" 2>nul
+SET "backupDir=%root%_backup"
+REM mkdir "%backupDir%" 2>nul
 
 REM Copy everything to the backup directory excluding _backup
-rem xcopy "%root%*" "%backupDir%" /E /I /Y /EXCLUDE:%~dp0exclude.txt >nul
+REM xcopy "%root%*" "%backupDir%" /E /I /Y /EXCLUDE:%~dp0exclude.txt >nul
 
 FOR /F "eol=| delims=" %%I IN ('DIR /B /A-D /O-D /TW "%root%core_user_*.dat" 2^>nul') DO (
     SET "NewestFileUser=%root%%%I"
@@ -22,29 +26,29 @@ FOR /F "eol=| delims=" %%I IN ('DIR /B /A-D /O-D /TW "%root%core_char_*.dat" 2^>
 )
 :FoundChar
 
-echo Newest User file: "%NewestFileUserFile%"
-echo Newest Character File: "%NewestFileCharfile%"
-echo --
+ECHO Newest User file: "%NewestFileUserFile%"
+ECHO Newest Character File: "%NewestFileCharfile%"
+ECHO --
 
 REM Prompt to continue
 choice /C YN /M "Do you want to continue?"
-if errorlevel 2 goto :eof
+IF errorlevel 2 GOTO :eof
 
 
-for %%a in ("%root%core_user_*.dat") do (
-    for /f "tokens=2 delims=0123456789" %%b in ("x%%~nxa") do (
-rem         @echo Replacing "%%~a" with "%NewestFileUser%"
-        copy /Y "%NewestFileUser%" "%%~dpnxa"
-rem        @echo "#%%~a#"
+FOR %%a in ("%root%core_user_*.dat") DO (
+    FOR /f "tokens=2 delims=0123456789" %%b in ("x%%~nxa") DO (
+REM         @echo Replacing "%%~a" with "%NewestFileUser%"
+        COPY /Y "%NewestFileUser%" "%%~dpnxa"
+REM        @echo "#%%~a#"
     )
 )
 
-for %%a in ("%root%core_char_*.dat") do (
-    for /f "tokens=2 delims=0123456789" %%b in ("x%%~nxa") do (
-rem         @echo Replacing "%%~a" with "%NewestFileChar%"
-        copy /Y "%NewestFileChar%" "%%~dpnxa"
-rem        @echo "#%%~a#"
+FOR %%a in ("%root%core_char_*.dat") DO (
+    FOR /f "tokens=2 delims=0123456789" %%b in ("x%%~nxa") DO (
+REM         @echo Replacing "%%~a" with "%NewestFileChar%"
+        COPY /Y "%NewestFileChar%" "%%~dpnxa"
+REM        @echo "#%%~a#"
     )
 )
 
-echo All good.
+ECHO All good.
