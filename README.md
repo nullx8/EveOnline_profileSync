@@ -12,6 +12,9 @@ Installation
    if you not know where to find it copy %LOCALAPPDATA%\CCP\EVE\ in the file explorer and go from there to find the complete path. 
 - make a shortcut to the batch file for easy access
 
+Questions:
+ingame: SwingFish | Electropost: swingfish@icloud.com | html: https://2css.space/profilesync
+
 ToDo:
 - external file for game-path variable
 - exclude specific profiles
